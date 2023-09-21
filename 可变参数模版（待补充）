@@ -1,0 +1,6 @@
+语法
+	template<class …Args>
+	返回类型 函数名(Args… args)
+	{
+  		//函数体
+	}
