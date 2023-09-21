@@ -1,0 +1,8 @@
+智能指针种类   //使用智能指针前必须添加头文件#include<memory>
+unique_ptr    //独占指针  不知其普通的拷贝和赋值操作  所 
+       		unique_ptr<int> p(new int(5));
+    		unique_ptr<int> p2(p);
+    		unique_ptr<int> p3 = p;
+shared_ptr    //一个原始指针只能被赋予一个智能指针    例 shared_ptr<int> p=make_shared_ptr<int>(数值)
+weak_ptr      //可解决shared_ptr循环引用的问题   将其中一个shared_ptr替换成weak_ptr
+
