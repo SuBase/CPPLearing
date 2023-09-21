@@ -1,0 +1,75 @@
+#include <iostream>
+#include <conio.h> // 用于监听键盘按键
+
+void function1() {
+    std::cout << "Function 1 is running" << std::endl;
+}
+
+void function2() {
+    std::cout << "Function 2 is running" << std::endl;
+}
+
+int main() {
+    char key;
+    bool ctrlPressed = false;
+    bool altPressed = false;
+
+    while (true) {
+        if (_kbhit()) {
+            key = _getch();
+
+            if (key == 0 || key == -32) { // 处理特殊按键
+                key = _getch();
+
+                if (key == 29) { // Ctrl键按下
+                    ctrlPressed = true;
+                } else if (key == 56) { // Alt键按下
+                    altPressed = true;
+                }
+            } else if (key == '1' && ctrlPressed && altPressed) {
+                function1();
+            } else if (key == '2' && ctrlPressed && altPressed) {
+                function2();
+            }
+
+            if (key == 29) { // Ctrl键释放
+                ctrlPressed = false;
+            } else if (key == 56) { // Alt键释放
+                altPressed = false;
+            }
+        }
+    }
+
+    return 0;
+}
+在上述代码中，我们使用了_kbhit()函数来检查键盘是否有输入，_getch()函数来获取按下的键值。如果按下的是特殊按键（例如Ctrl、Alt），则需要连续调用_getch()获取特殊按键的键值。
+
+在main()函数的无限循环中，我们检查按下的组合按键是否为Ctrl+Alt+1或Ctrl+Alt+2，如果是，则分别调用function1()和function2()函数。
+
+请注意，上述代码使用了Windows系统特定的conio.h头文件中的函数。如果你使用的是其他操作系统，可能需要使用不同的库函数来实现键盘监听。
+
+
+
+
+Win11:
+
+#include<iostream>
+#include<Windows.h>
+
+int main() {
+    while (true) {
+        if (GetAsyncKeyState(VK_CONTROL) & 0x8000 &&
+            GetAsyncKeyState(VK_MENU) & 0x8000 &&
+            GetAsyncKeyState(0x31) & 0x8000) {
+            std::cout << "Ctrl+Alt+1 pressed" << std::endl;
+        }
+
+        if (GetAsyncKeyState(VK_CONTROL) & 0x8000 &&
+            GetAsyncKeyState(VK_MENU) & 0x8000 &&
+            GetAsyncKeyState(0x32) & 0x8000) {
+            std::cout << "Ctrl+Alt+2 pressed" << std::endl;
+        }
+    }
+
+    return 0;
+}
