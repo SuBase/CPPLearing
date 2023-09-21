@@ -1,0 +1,27 @@
+（1）void func1 (std: : function<bool(int)>& f) {
+	f(10);
+}
+
+
+
+（2）void func2 (bool(&f)(int)) {
+	f(10);
+}
+
+
+
+（3）bool func(int a) {
+	std: :cout << a << std: : endl;
+}
+
+
+
+
+
+int main() {
+	std: : function<bool//返回值类型(int//参数列表)> p = func;
+	func1(p);
+	//func1( func); 错误
+	func2 ( func);
+
+}
