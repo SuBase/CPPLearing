@@ -1,0 +1,51 @@
+struct ErCha {
+     char data;
+     ErCha *kid_left;
+     ErCha *kid_right;
+}
+
+二叉树节点的创建
+ErCha createNode(char data)
+{
+ErCha newNode = new ErCha;
+newNode->data = data;
+newNode- >kid_left = NULL;
+newNode- >kid_right = NULL;
+return newNode;
+}
+
+链接二叉树
+void insertNode(ErCha parentNode, ErCha kid_left, ErCha kid_right)
+{
+parentNode->kid_left = LChild;
+parentNode->kid_right = RChild;
+}
+
+递归遍历
+
+1.前序遍历 
+void preOrder(ErCha root){
+  if (root != NULL){
+  printCurNodeData(root);     //:根
+  pre0rder(root->kid_left);   //:左
+  preOrder(root->kid_right);  //:右
+  }
+}
+
+2.中序遍历
+void preOrder(ErCha root){
+  if (root != NULL){
+  pre0rder(root->kid_left);   //:左
+  printCurNodeData(root);     //:根
+  preOrder(root->kid_right);  //:右
+  }
+}
+
+3.后续遍历
+void preOrder(ErCha root){
+  if (root != NULL){ 
+  pre0rder(root->kid_left);   //:左 
+  preOrder(root->kid_right);  //:右
+  printCurNodeData(root);     //:根
+  }
+}
