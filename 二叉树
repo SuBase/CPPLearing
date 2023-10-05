@@ -26,7 +26,7 @@ parentNode->kid_right = RChild;
 1.前序遍历 
 void preOrder(ErCha root){
   if (root != NULL){
-  printCurNodeData(root);     //:根
+  printCurNodeData(root);     //:根      打印内容的函数 
   pre0rder(root->kid_left);   //:左
   preOrder(root->kid_right);  //:右
   }
@@ -49,3 +49,28 @@ void preOrder(ErCha root){
   printCurNodeData(root);     //:根
   }
 }
+
+
+非递归（函数）
+void preOderByStack(ErCha root){
+     if (root == NULL){
+     return; 
+     }
+     ErCha stack[10];                       //准备栈              
+     int stackTop = -1;                    wwwdasdwasdwasdwasdwasdwa //存储每次打印节点的位置
+     LPTREE pMove = root;                   //栈顶标记                                                            
+     while (stackTop != -1 | pMove){        //从根节，点开始做打印
+
+     while (pMove){                         //根左右    
+     printf( "%c\t", pMove->data);          //把路径入栈+打印走过的结点    
+     stack[++stackTop] = pMove ;
+     pMove = pMove- >LChild;
+     }
+                                            
+          if (stackTop != -1){              //无路可走的处理
+               pMove = stack[stackTop];     //获取栈顶元素
+               stackTop--;                                       
+               pMove = pMove- >RChild;      //出栈
+          }
+}
+
