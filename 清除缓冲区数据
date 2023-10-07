@@ -1,0 +1,2 @@
+1.    setbuf(stdin,nullptr);
+2.    cin.ignore();           //括号内可加 numeric_limits<streamsize>::max(), '\n'
