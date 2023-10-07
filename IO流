@@ -1,0 +1,22 @@
+头文件 #include<iomanip>
+setbase()           //在cout里使用 表示后面的数据使用多少进制表示
+setiosflags(ios::left)            //表示左对齐
+setprecision()                    //在cout里使用 表示打印数据的长度   前面加上 <<fixed<< 表示小数位的长度
+setw()                            //设置宽度 和 \t 相似
+boolalpha                         //在cout中使用   可以将 bool 类型数据输出 true/fase
+
+* move()                          //强制把左值转换成右值
+ref()                             //将变量啥的包装成一个引用
+
+
+字符流
+头文件#include<sstream>
+1.基本操作
+  stringstream 类名 ("字符串")；   //创建对象
+  类名.str()                      //获取内容字符串   ()里输入内容可重新定义新内容
+  
+2.多种情况用来做类型转换
+  to_string(数字)                 //把数字转换为相应的字符/串
+
+  2.1 字符切割
+  
